@@ -40,6 +40,7 @@ class JavaQuestionServiceTest {
 
     @Test
     void whenGetRandomQuestionIsNull_ThenJavaServiceReturnsResults() {
-        // Не реализовал метод, поэтому и не пойму что тестить
+        int index = 0;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> service.getRandomQuestion());
     }
 }

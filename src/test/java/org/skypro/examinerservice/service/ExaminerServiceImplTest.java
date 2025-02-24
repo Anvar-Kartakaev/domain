@@ -12,8 +12,9 @@ class ExaminerServiceImplTest {
     ExaminerServiceImpl examinerService;
 
     @Test
-    void getQuestions() {
-        // Не реализовал метод, поэтому и не пойму что тестить
+    void whenGetQuestionsIsNull_ThenExaminerServiceImplReturnsResults() {
+        int amount = 0;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> examinerService.getQuestions(amount));
     }
 
     @Test

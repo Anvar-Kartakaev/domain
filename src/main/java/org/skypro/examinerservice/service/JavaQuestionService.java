@@ -42,9 +42,8 @@ public class JavaQuestionService implements QuestionService {
 
     public Question getRandomQuestion() {
         Random random = new Random();
-        return random.nextInt(Integer.MAX_VALUE);
-        // Реализуйте метод getRandomQuestion с помощью класса Random. Он должен возвращать случайное число от нуля до максимального
-        // Как возвращать случайно число если надо вернуть Question ?
+        int index = random.nextInt(questions.size());
+        return (Question) questions.toArray()[index];
     }
 
 }

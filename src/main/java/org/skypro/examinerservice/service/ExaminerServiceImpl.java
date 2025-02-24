@@ -5,23 +5,25 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Random;
 
 @Service
 public class ExaminerServiceImpl implements QuestionService {
-    private final Random random;
     private final QuestionService questionService;
 
     public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
-        this.random = new Random();
     }
 
     public Collection<Question> getQuestions(int amount) {
         Collection<Question> result = new HashSet<>();
+        if (amount > 0) {
+            for (int i = 0; i < amount; i++) {
+                result.add(questionService.getRandomQuestion());
+            }
+        } else {
+            throw new IllegalArgumentException("Кол-во должно быть больше нуля");
+        }
         return result;
-        // Создайте коллекцию и заполните ее случайными вопросами с помощью getRandomQuestion.
-        // Не понимаю как реализовать, проблема тянется еще с реализации метода где надо вернуть случайное число
     }
 
     @Override

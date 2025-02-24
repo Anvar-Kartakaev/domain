@@ -11,18 +11,18 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping
+@RequestMapping("/exam/java")
 public class JavaQuestionController {
     QuestionService service;
+
+    @GetMapping
+    public Collection<Question> getQuestions() {
+        return service.getAll();
+    }
 
     @GetMapping("/exam/java/add")
     public Question addQuestion(@RequestParam String question, String answer) {
         return new Question(question, answer);
-    }
-
-    @GetMapping("/exam/java")
-    public Collection<Question> getQuestions() {
-        return service.getAll();
     }
 
     @GetMapping("/exam/java/remove")
