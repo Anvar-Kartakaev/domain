@@ -1,4 +1,4 @@
-package org.skypro.domain;
+package org.skypro.examinerservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
